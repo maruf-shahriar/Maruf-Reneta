@@ -11,8 +11,8 @@ Clone the Repository in your system
 
 In this project i use django_restframework for backend and for frontend i use reactJS.
     
-    a. ER Diagram
-        ![alt text](image.png)
+a. ER Diagram
+![alt text](image.png)
 
     Backend
         1. Go to the Task_2/Backend/ directory.
