@@ -3,6 +3,7 @@ import BarChartB from "./BarChartB";
 import { Bar } from "react-chartjs-2";
 import Papa from "papaparse";
 import axios from "axios";
+import "./barChart.css";
 import {
     Chart as ChartJS,
     Tooltip,
@@ -45,6 +46,7 @@ const BarChart = () => {
                             Number(row.TotalValue)
                         );
                         const maxTotalValue = Math.max(...totalValue);
+                        console.log(maxTotalValue);
                         // Data set to the chart
                         setChartData({
                             labels,
@@ -52,11 +54,10 @@ const BarChart = () => {
                                 {
                                     label: "Total Sales",
                                     data: totalSales,
-                                    backgroundColor: totalValue.map((value) => {
-                                        const intensity =
-                                            (value / maxTotalValue) * 255;
-                                        return `rgba(${intensity}, 39, 4, 1)`;
-                                    }),
+                                    backgroundColor: totalValue.map(
+                                        (value) =>
+                                            `rgba(${value * 3.225}, 39, 4)`
+                                    ),
                                     borderWidth: 1,
                                 },
                             ],
@@ -94,7 +95,7 @@ const BarChart = () => {
                     text: "Product",
                 },
                 grid: {
-                    drawOnChartArea: false, 
+                    drawOnChartArea: false,
                 },
             },
             y: {
@@ -111,12 +112,28 @@ const BarChart = () => {
             <h1>Bar Chart A</h1>
             <div style={{ width: "80%", margin: "50px" }}>
                 {chartData ? (
+                    <div class="main">
                     <Bar data={chartData} options={options} />
+                    <div class="gradient-bar-container">
+                    <div class="gradient-bar"></div>
+                    <div class="labels">
+                        <span>40</span>
+                        <span>35</span>
+                        <span>30</span>
+                        <span>25</span>
+                        <span>20</span>
+                        <span>15</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                    </div>
                 ) : (
                     <p>Loading data...</p>
                 )}
             </div>
-            <BarChartB />
+            
+                <BarChartB />
+            
         </div>
     );
 };

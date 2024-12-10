@@ -1,0 +1,30 @@
+.main {
+    display: flex;
+    align-items: center;
+}
+.gradient-bar-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-left: 80px;
+}
+
+.gradient-bar {
+    width: 10px;
+    height: 300px;
+    background: linear-gradient(to bottom, #8b0000, #f57849, #fcefe3);
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.labels span {
+    font-size: 14px;
+    color: #555;
+}
